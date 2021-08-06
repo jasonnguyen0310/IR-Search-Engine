@@ -17,4 +17,8 @@ Method:        **Map<Token,Count> computeWordFrequencies(List<Token>)**
 A method/function that counts the number of occurrences of each token in the token list.
 
 Method:         **void print(Frequencies<Token, Count>)**
-Finally, write a method that prints out the word frequency counts o
+A method that prints out the word frequency counts
+
+# Web Crawler/Scraper
+
+Starting at a seed page and crawling all links on that page and the page after that. This builds our corpus.

@@ -14,4 +14,3 @@ if __name__ == "__main__":
 	printWordFrequencies(tokenDict)
 	numberOfCommonTokens = intersection("test.txt", "test2.txt")
 	print(numberOfCommonTokens)
-
