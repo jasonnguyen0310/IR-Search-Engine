@@ -1,4 +1,4 @@
-from textProcessing import tokenize, computeWordFrequencies, printWordFrequencies
+from textProcessing import tokenize, computeWordFrequencies, printWordFrequencies, intersection
 
 '''
 main.py
@@ -12,4 +12,6 @@ if __name__ == "__main__":
 	print(tokenList)
 	tokenDict = computeWordFrequencies(tokenList)
 	printWordFrequencies(tokenDict)
+	numberOfCommonTokens = intersection("test.txt", "test2.txt")
+	print(numberOfCommonTokens)
 

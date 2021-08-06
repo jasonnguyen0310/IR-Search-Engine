@@ -4,10 +4,10 @@ Aythor : Jason Nguyen
 module contains methods required for text processing
 '''
 
-def tokenize(textFilePath):
+def tokenize(filename):
 	# O(n) having n as the size of the file
 	tokenList = []
-	with open (textFilePath, "r") as myfile:
+	with open (filename, "r") as myfile:
 		for line in myfile:
 			line = line.strip()
 			line = line.lower()
@@ -15,6 +15,7 @@ def tokenize(textFilePath):
 	return tokenList
 
 def computeWordFrequencies(tokenList):
+	# O(n) having n as the size of the tokenList
 	tokenDict = {}
 	for token in tokenList:
 		if token in tokenDict:
@@ -25,6 +26,24 @@ def computeWordFrequencies(tokenList):
 	return tokenDict
 
 def printWordFrequencies(tokenDict):
+	# O(nlogn) having n as the size of the tokenDict
 	tokenDict = {k: v for k, v in sorted(tokenDict.items(), key = lambda item: item[1])}
 	for (key, value) in tokenDict.items():
 		print(f"<{key}> = <{value}>")
+
+def intersection(filename1, filename2):
+	numberOfCommonTokens = 0
+	tokenList1 = tokenize(filename1)
+	tokenList2 = tokenize(filename2)
+	tokenDict1 = computeWordFrequencies(tokenList1)
+	tokenDict2 = computeWordFrequencies(tokenList2)
+	if (len(tokenDict1.keys()) > len(tokenDict2.keys())):
+		for key in set(tokenDict1.keys()):
+			if (key in tokenDict2.keys()):
+				numberOfCommonTokens += 1
+	else:
+		for key in set(tokenDict2.keys()):
+			if (key in tokenDict1.keys()):
+				numberOfCommonTokens += 1
+
+	return numberOfCommonTokens

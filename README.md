@@ -8,7 +8,7 @@ Have you ever wondered how companies like Google, Bing, Baidu, and Yahoo build s
 This information retrieval search engine was built from scratch. This README will address the thought proceses, methods, functions, concepts, and algorithms that are used to create a fully functional search engine!
 
 # Text Processing
-When building a **informational retrieval system**, we must have the tools capable of parsing text, processing texting, and storing text are from webpages in order to accurately return to a query. 
+When building a **informational retrieval system**, we must have the tools capable of parsing text, processing texting, and storing text from webpages that aid in accurately returning to a query. These tools include processing words, storing words, finding matching words between two files, etc.
 
 Method/Function: **List<Token> tokenize(TextFilePath)**
 A method/function that reads in a text file and returns a list of the tokens in that file. For the purposes of this project, a token is a sequence of alphanumeric characters, independent of capitalization (so Apple, apple are the same token).
