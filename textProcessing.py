@@ -32,18 +32,14 @@ def printWordFrequencies(tokenDict):
 		print(f"<{key}> = <{value}>")
 
 def intersection(filename1, filename2):
+	# O(n log n)
 	numberOfCommonTokens = 0
 	tokenList1 = tokenize(filename1)
 	tokenList2 = tokenize(filename2)
 	tokenDict1 = computeWordFrequencies(tokenList1)
 	tokenDict2 = computeWordFrequencies(tokenList2)
-	if (len(tokenDict1.keys()) > len(tokenDict2.keys())):
-		for key in set(tokenDict1.keys()):
-			if (key in tokenDict2.keys()):
-				numberOfCommonTokens += 1
-	else:
-		for key in set(tokenDict2.keys()):
-			if (key in tokenDict1.keys()):
-				numberOfCommonTokens += 1
+	for key in set(tokenDict1.keys()):
+		if (key in tokenDict2.keys()):
+			numberOfCommonTokens += 1
 
 	return numberOfCommonTokens
