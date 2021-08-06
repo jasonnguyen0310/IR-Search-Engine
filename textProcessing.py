@@ -4,6 +4,8 @@ Aythor : Jason Nguyen
 module contains methods required for text processing
 '''
 
+import re
+
 def tokenize(filename):
 	# O(n) having n as the size of the file
 	tokenList = []
@@ -11,14 +13,16 @@ def tokenize(filename):
 		for line in myfile:
 			line = line.strip()
 			line = line.lower()
-			tokenList += line.split()
+			tokenList += re.split('[^a-zA-Z0-9]+', line)
 	return tokenList
 
 def computeWordFrequencies(tokenList):
 	# O(n) having n as the size of the tokenList
 	tokenDict = {}
 	for token in tokenList:
-		if token in tokenDict:
+		if (not token.isalnum()):
+			pass
+		elif token in tokenDict:
 			tokenDict[token] += 1
 		else:
 			tokenDict[token] = 1
