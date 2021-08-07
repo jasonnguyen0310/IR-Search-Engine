@@ -61,13 +61,13 @@ A URL is divided into multiple sections:
 Each link was also matched against the previously picked up URL based off length intersection to avoid picking up slightly different links that all lead to the same page.
 
 **Content**<br />
-Stopwords and stemming.<br />
+[Stopwords and stemming.<br />](https://gist.github.com/sebleier/554280)
 I researched and gathered the top 50 most commonly used words and stopwords when extracting text from a webpage so it will not influence the score of the page. Some stopwords would include: “an”, “to”, “from”, and etc. The reason for this is because a lot of english text contains a lot of repetitive unnecessary words that do not add that much value. This is how compression works because english text is so predictable, it is often able to just remove them entirely or just have their start/end letters. The english word ‘the’ is the most repetitive word in the English language. When encountering words, I would stem them to normalize words. This would mean reducing morphologically similar words to their root word. “Running”, “runs”, and “ran” would all be reduced to “run”. This will greatly help in the scoring process. I used the **porter stemming algorithm**. The porter stemming algorithm** is an algorithm that removes stems of words such as agreed to agree based on its rules.
 
-Same exact/ similar webpage content.<br />
-For the same exact webpage content, I used the a crc library hash function to assign each webpage a hash number, append it to our hashtable, and checked against all other webpages to avoid recrawling the same webpage. Cyclic redundancy check (CRC) is a hash function that hashes a stream of bytes with as few collisions as possible.
+[Same exact/ similar webpage content.<br />](https://docs.python.org/3/library/hashlib.html)
+For the same exact webpage content, I used the a CRC library hash function to assign each webpage a hash number, append it to our hashtable, and checked against all other webpages to avoid recrawling the same webpage. Cyclic redundancy check (CRC) is a hash function that hashes a stream of bytes with as few collisions as possible.
 
-Similar webpage content.<br />
+[Similar webpage content.<br />](https://en.wikipedia.org/wiki/SimHash)
 I implemented my own sim hash function to assign a hash number to the webpage, append it to my sim hashtable, and checked against all other webpages to avoid recrawling a similar webpage. Simhash is a technique that estimates how similar two sets are, one used by Google Crawler. I created mine by creating a fingerprint of each page based on some of the words.
 
 **Robot Exlcusion Protocol**<br />
