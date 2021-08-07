@@ -22,3 +22,11 @@ A method that prints out the word frequency counts
 # Web Crawler/Scraper
 
 Starting at a seed page and crawling all links on that page and the page after that. This builds our corpus.
+While crawling there are a couple details we want to pay attention to:
+  1. Crawl all pages with high textual information content
+  2. Detect and avoid infinite traps
+  3. Detect and avoid sets of similar pages with no information
+  4. Detect and avoid dead URLs that return a 200 status but no data
+  5. Detect and avoid crawling very large files, especially if they have low information value
+  
+# Algorithms
