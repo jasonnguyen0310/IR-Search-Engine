@@ -58,7 +58,7 @@ A URL is divided into multiple sections:
   2. Domain
   3. Path
   4. Query
-  
+
 Each link was also matched against the previously picked up URL based off length intersection to avoid picking up slightly different links that all lead to the same page.
 
 **Content**<br />
@@ -116,7 +116,7 @@ Algorithm:
   4. However, this random walk could result in dead end pages, so with 10 % probability jump to any random page.<br />
   5. We record the amount of visits a page gets and logically a page that gets visited more would be more important<br />
 
-**Retrieving relevant information based on cosine similarity**<br />
+# Retrieving relevant information based on cosine similarity
 Ranking documents in decreasing order of angle(query, document) is the same as ranking documents in increasing order of cosine(query, document):
   1. Take the tf-idf score of both the query and document, for the document all of it is done beforehand, preprocessing.
   2. Normalize the tf-idf score using length normalization
