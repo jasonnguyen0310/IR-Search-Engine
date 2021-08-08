@@ -79,5 +79,31 @@ A spider trap is a large number of different URLs that refer to the same page. T
 **Politeness**<br />
 Politeness is not sending multiple requests to the same website over a certain period of time overloading the server which may eventually lead to a DOS(Denial of Service) attack. In my code, there was a 500 ms delay between each request.
 
+# The Inverted Index
 
-# Algorithms
+**What is an inverted index?**<br />
+It is simply a map with token as a key and a list of its corresponding postings where a posting may contain the token's frequency within a document, documenty id the token was found in, tokens position, and tf-idf score of that document It is the step that occurs after crawling where crawling scans the web returning each website's url and content of that url. It is called inverted because the keys are words while the values are the document's information.
+
+**What is the goal of an inverted index?**<br />
+The goal of an inverted index is to provide fast lookup times for the search engine and return URLs based on relvancy based on the query.
+
+**Why is an inverted index needed?**<br />
+An inverted index is required because it would take too much time to scan over documents, calculating its tf-idf score to the query and returning relevant results in real time compared to just preprocessing all of the data.
+
+**Implementation**<br />
+After crawling and storing all of the websites in to disk, I would iterate over each document, parse it, get the frequency of each word and their positions relative to the document, and write it out to file. Since there were so many files, I had to write it out to disk instead of saving it within memory. After each iteration, I would save it in memory, but after the 5000th iteration, I would write it out to file, clear it in memory, and restart until I was done with all of the documents. Since an in-memory seasrch for a duplicate URL would have been costly, I allocated some mory for a hashtable to quickly store and check in constant time for duplicates and similar webpages using CRC check and Simhash checking.
+
+# Search Engine
+**What is a search engine?**<br />
+Once the crawling and indexing is done, a query is given to a search engine and the search engine is supposed to presnt the most relevant documents back to that query.
+
+
+**Ranking Algorithms**<br />
+[Boolean Search](https://www.nypl.org/blog/2011/02/22/what-boolean-search#:~:text=Boolean%20searching%20is%20built%20on,broaden%2C%20or%20define%20your%20search.): The problem with a boolean search is that it is either results in too many documents or too few.
+
+[Jaccard coefficient](https://en.wikipedia.org/wiki/Jaccard_index): The set intersection between the query and documents
+
+
+[TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf): term frequency * inverse document frequency. Best known and most widely using weighting scheme in IR. 
+
+
