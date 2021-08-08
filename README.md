@@ -105,4 +105,24 @@ Once the crawling and indexing is done, a query is given to a search engine and 
 
 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf): term frequency * inverse document frequency. Best known and most widely using weighting scheme in IR. 
 
+[N-gram indexing](https://whoosh.readthedocs.io/en/latest/ngrams.html): Compares the positions of terms within a query to the positions of terms within a document. If trhere is a document with terms in the exact same position as the query, it wouyld be ranked higher than other documents.
+
+[Google's PageRank](https://en.wikipedia.org/wiki/PageRank): Pagerank is another weighting of documents that would give a document more weight if it had a lot of inlinks compared to one document that doesn't have a lot of inlinks.
+Algorithm:
+	1. Start on a random page
+	2. Visit one of the outlinks based of equal probability
+	3. Keep on doing this until we reach a steady state of long term visit rates and use this as part of the rating, similar to a steady state of a markov chain.
+	4. However, this random walk could result in dead end pages, so with 10 % probability jump to any random page.
+	5. We record the amount of visits a page gets and logically a page that gets visited more would be more important
+
+
+**Retrieving relevant information based on cosine similarity**<br />
+Ranking documents in decreasing order of angle(query, document) is the same as ranking documents in increasing order of cosine(query, document):
+	1. Take the tf-idf score of both the query and document, for the document all of it is done beforehand, preprocessing.
+	2. Normalize the tf-idf score using length normalization
+	3. Take cosine similarity of both of these scores using the dot product
+	4. We repeat for each term within the query and sum it all up
+	5. Return the top 10 highest similar results, largest query-doc cosines.
+	6. Pretty much solving the K-nearest neighbors for a query vector
+
 
