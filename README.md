@@ -101,8 +101,7 @@ Once the crawling and indexing is done, a query is given to a search engine and 
 **Ranking Algorithms**<br />
 [Boolean Search](https://www.nypl.org/blog/2011/02/22/what-boolean-search#:~:text=Boolean%20searching%20is%20built%20on,broaden%2C%20or%20define%20your%20search.): The problem with a boolean search is that it is either results in too many documents or too few.
 
-[Jaccard coefficient](https://en.wikipedia.org/wiki/Jaccard_index): The set intersection between the query and documents
-
+[Jaccard coefficient](https://en.wikipedia.org/wiki/Jaccard_index): The set intersection between the query and documents. It doesn't consider term frequency (how many times a term occurs in a document). Rare terms in a collection are more informative than frequent terms. Jaccard doesn't consider this information
 
 [TF-IDF](https://en.wikipedia.org/wiki/Tf%E2%80%93idf): term frequency * inverse document frequency. Best known and most widely using weighting scheme in IR. 
 
