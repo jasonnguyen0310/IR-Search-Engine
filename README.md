@@ -58,6 +58,7 @@ A URL is divided into multiple sections:
   2. Domain
   3. Path
   4. Query
+  
 Each link was also matched against the previously picked up URL based off length intersection to avoid picking up slightly different links that all lead to the same page.
 
 **Content**<br />
